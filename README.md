@@ -43,7 +43,10 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the Repository
 
-[Clone the repository](https://github.com/KonChannn/next-pbkk.git)
+
+```bash
+git clone https://github.com/KonChannn/next-pbkk.git
+```
 
 ### 2. Install Dependencies
 
