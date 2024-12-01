@@ -44,7 +44,7 @@ Follow these steps to set up the project locally.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/komixcel-backend.git
+[git clone https://github.com/your-username/komixcel-backend.git](https://github.com/KonChannn/next-pbkk.git)
 ```
 
 ### 2. Install Dependencies
