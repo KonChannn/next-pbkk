@@ -13,23 +13,29 @@ import {
   UserCircleIcon,
   CommandLineIcon,
   Squares2X2Icon,
+  TvIcon,
+  BookOpenIcon,
+  BookmarkIcon,
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 
 const NAV_MENU = [
   {
-    name: "Page",
-    icon: RectangleStackIcon,
+    name: "Anime",
+    icon: TvIcon,
+  },
+  {
+    name: "Manga",
+    icon: BookOpenIcon,
+  },
+  {
+    name: "My List",
+    icon: BookmarkIcon,
   },
   {
     name: "Account",
     icon: UserCircleIcon,
-  },
-  {
-    name: "Docs",
-    icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
   },
 ];
 
@@ -95,7 +101,7 @@ export function Navbar() {
                 href="https://www.material-tailwind.com/blocks"
                 target="_blank"
               >
-                <Button color="gray">Blocks</Button>
+                <Button color="gray">Register</Button>
               </a>
             </div>
             <IconButton
@@ -127,7 +133,7 @@ export function Navbar() {
                   href="https://www.material-tailwind.com/blocks"
                   target="_blank"
                 >
-                  <Button color="gray">blocks</Button>
+                  <Button color="gray">Register</Button>
                 </a>
               </div>
             </div>

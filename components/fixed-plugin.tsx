@@ -4,7 +4,6 @@ import { Button } from "./MTailwind";
 
 export function FixedPlugin() {
   return (
-    <a href="https://www.material-tailwind.com" target="_blank">
       <Button
         color="white"
         size="sm"
@@ -17,9 +16,8 @@ export function FixedPlugin() {
           alt="Material Tailwind"
           src="https://www.material-tailwind.com/favicon.png"
         />{" "}
-        Made With Material Tailwind
+        PBKK Project
       </Button>
-    </a>
   );
 }
 

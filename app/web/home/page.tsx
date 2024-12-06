@@ -1,73 +1,125 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "../../MTailwind";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export default function ComicPage() {
   return (
-    <div className="mx-auto p-8 space-y-6">
-      {/* Page Title */}
-      <h1 className="text-4xl font-extrabold text-center text-indigo-600">
-        Welcome to Comic World!
-      </h1>
-      <p className="text-lg text-center text-gray-600">
-        Explore exciting stories from your favorite comic genres!
-      </p>
+    <>
+      <Navbar />
+      <div className="w-full px-8 py-6">
+        {/* Comic Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {/* Comic Card 1 */}
+          <Card className="shadow-lg min-h-[28rem]">
+            <CardHeader floated={false} className="h-72 p-0 m-0">
+              <img
+                src="/path-to-image.jpg"
+                alt="The Galactic Odyssey"
+                className="w-full h-full object-cover"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" className="mb-2">
+                The Galactic Odyssey
+              </Typography>
+              <Typography color="gray">
+                A thrilling space adventure. Follow Captain Nova as she defends the universe against cosmic threats!
+              </Typography>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button color="blue" fullWidth>
+                Read More
+              </Button>
+            </CardFooter>
+          </Card>
 
-      {/* Comic Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Comic Card 1 */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg font-bold">The Galactic Odyssey</CardTitle>
-            <CardDescription className="text-sm text-gray-500">A thrilling space adventure.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700">
-              Follow Captain Nova as she defends the universe against cosmic threats!
-            </p>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full" variant="primary">
-              Read More
-            </Button>
-          </CardFooter>
-        </Card>
+          {/* Comic Card 2 */}
+          <Card className="shadow-lg min-h-[28rem]">
+            <CardHeader floated={false} className="h-72 p-0 m-0">
+              <img
+                src="/path-to-image.jpg"
+                alt="The Galactic Odyssey"
+                className="w-full h-full object-cover"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" className="mb-2">
+                The Galactic Odyssey
+              </Typography>
+              <Typography color="gray">
+                A thrilling space adventure. Follow Captain Nova as she defends the universe against cosmic threats!
+              </Typography>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button color="blue" fullWidth>
+                Read More
+              </Button>
+            </CardFooter>
+          </Card>
 
-        {/* Comic Card 2 */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg font-bold">Mystic Realms</CardTitle>
-            <CardDescription className="text-sm text-gray-500">Step into a world of magic.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700">
-              Discover enchanted lands and ancient spells in this fantasy epic!
-            </p>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full" variant="secondary">
-              Read More
-            </Button>
-          </CardFooter>
-        </Card>
+          {/* Comic Card 3 */}
+          <Card className="shadow-lg min-h-[28rem]">
+            <CardHeader floated={false} className="h-72 p-0 m-0">
+              <img
+                src="/path-to-image.jpg"
+                alt="The Galactic Odyssey"
+                className="w-full h-full object-cover"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" className="mb-2">
+                The Galactic Odyssey
+              </Typography>
+              <Typography color="gray">
+                A thrilling space adventure. Follow Captain Nova as she defends the universe against cosmic threats!
+              </Typography>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button color="blue" fullWidth>
+                Read More
+              </Button>
+            </CardFooter>
+          </Card>
 
-        {/* Comic Card 3 */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg font-bold">Cyberpunk Chronicles</CardTitle>
-            <CardDescription className="text-sm text-gray-500">A gritty cyberpunk tale.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700">
-              Dive into the neon-lit world of hackers, robots, and mega-corporations.
-            </p>
-          </CardContent>
-          <CardFooter>
-            <Button className="w-full" variant="outline">
-              Read More
-            </Button>
-          </CardFooter>
-        </Card>
+          {/* Comic Card 4 */}
+          <Card className="shadow-lg min-h-[28rem]">
+           <CardHeader
+              floated={false}
+              shadow={false}
+              color="transparent"
+              className="h-72 p-0 m-0"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+                alt="ui/ux review check"
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography variant="h5" className="mb-2">
+                The Galactic Odyssey
+              </Typography>
+              <Typography color="gray">
+                A thrilling space adventure. Follow Captain Nova as she defends the universe against cosmic threats!
+              </Typography>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button color="blue" fullWidth>
+                Read More
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

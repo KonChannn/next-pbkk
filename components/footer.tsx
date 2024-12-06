@@ -2,10 +2,6 @@ import { Typography, Button, Input } from "./MTailwind";
 
 const LINKS = [
   {
-    title: "Company",
-    items: ["About Us", "Careers", "Premium Tools", "Blog"],
-  },
-  {
     title: "Pages",
     items: ["Login", "Register", "Add List", "Contact"],
   },
@@ -54,7 +50,7 @@ export function Footer() {
               Your Email
             </Typography>
             <div className="flex mb-3 flex-col lg:flex-row items-start gap-4">
-              <div className="w-full">
+              <div className="flex flex-col w-full">
                 {/* @ts-ignore */}
                 <Input label="Email" color="gray" />
                 <Typography className="font-medium mt-3 !text-sm !text-gray-500 text-left">
@@ -67,8 +63,8 @@ export function Footer() {
                   </a>
                 </Typography>
               </div>
-              <Button color="gray" className="w-full lg:w-fit" size="md">
-                button
+              <Button color="gray" className="flex flex-col w-full lg:w-fit" size="md">
+                Send
               </Button>
             </div>
           </div>
@@ -83,7 +79,7 @@ export function Footer() {
           </a>{" "}
           by{" "}
           <a href="https://www.creative-tim.com" target="_blank">
-            Creative Tim
+            PBKK Project
           </a>
           .
         </Typography>
