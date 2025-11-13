@@ -1,10 +1,15 @@
 import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials"; // Import the credentials provider (for custom authentication)
+import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
+import prisma from "@/lib/prisma";
+import bcrypt from "bcryptjs";
 
-// NextAuth configuration
 const handler = NextAuth({
   providers: [
-    // Credential-based authentication
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -12,44 +17,50 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // Custom authentication logic here (e.g., check against a database)
-        const { email, password } = credentials;
+        if (!credentials?.email || !credentials?.password) return null;
+        
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
 
-        // Example: Check user credentials (replace with your logic)
-        const user = { id: 1, email: "test@example.com", name: "Test User" };
-
-        // Validate credentials (for example, check the database)
-        if (email === "test@example.com" && password === "password") {
-          return user; // Return user object if credentials are valid
-        } else {
-          return null; // Return null if authentication fails
+        if (user && bcrypt.compareSync(credentials.password, user.password)) {
+          return {
+            id: user.id.toString(),
+            email: user.email,
+            username: user.username,
+          };
         }
+        return null;
       },
     }),
-    // You can add more providers like Google, GitHub, etc., here if needed
   ],
-  pages: {
-    signIn: '/auth', // Redirect to your custom sign-in page
-  },
-  session: {
-    strategy: "jwt", // Use JSON Web Token (JWT) for session management
-  },
   callbacks: {
     async jwt({ token, user }) {
-      // Add user info to JWT token
       if (user) {
         token.id = user.id;
         token.email = user.email;
+        token.username = user.username;
       }
       return token;
     },
     async session({ session, token }) {
-      // Add JWT token info to session
-      session.user.id = token.id;
-      session.user.email = token.email;
+      if (token) {
+        session.user.id = token.id;
+        session.user.email = token.email;
+        session.user.username = token.username;
+      }
       return session;
     },
   },
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/error",
+  },
+  session: {
+    strategy: "jwt",
+  },
 });
 
-export { handler as GET, handler as POST };
+// Ekspor fungsi GET dan POST sesuai dengan format App Router
+export const GET = handler;
+export const POST = handler;

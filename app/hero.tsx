@@ -73,24 +73,45 @@ function Hero() {
 
       <div className="container mx-auto mt-28 z-10">
         <div className="grid grid-cols-12 text-center lg:text-left">
-          <Card className="col-span-full rounded-xl border border-white bg-white/90 py-10 p-8 shadow-lg shadow-black/10 backdrop-blur-sm backdrop-saturate-200 xl:col-span-7">
+          <Card className="col-span-full rounded-xl border border-white bg-white/90 py-10 p-8 shadow-lg shadow-black/10 backdrop-blur-sm backdrop-saturate-200 xl:col-span-7" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
             <Typography
               variant="h1"
               color="blue-gray"
               className="lg:text-5xl !leading-snug text-3xl lg:max-w-3xl"
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
             >
               Browse and Bookmark Your Favorite Anime and Manga
             </Typography>
-            <Typography variant="lead" className="mb-10 mt-6 !text-gray-900">
+            <Typography
+              variant="lead"
+              className="mb-10 mt-6 !text-gray-900"
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+            >
               You can browse through and bookmark your favorite anime and manga series, 
               allowing you to easily access them later and keep track of new episodes, 
               chapters, or updates for each series you're interested in.
             </Typography>
             <div className="my-2 flex justify-center gap-4 lg:justify-end">
-              <Button color="gray">Get Started</Button>
+              <Button 
+                color="gray" 
+                placeholder="" 
+                onPointerEnterCapture={() => {}} 
+                onPointerLeaveCapture={() => {}}
+              >
+                Get Started
+              </Button>
             </div>
             <div className="flex items-center justify-between gap-4 lg:justify-end">
-              <Typography variant="h2">
+              <Typography 
+                variant="h2" 
+                placeholder="" 
+                onPointerEnterCapture={() => {}} 
+                onPointerLeaveCapture={() => {}}
+              >
                 夢の世界へ、いざ！
               </Typography>
             </div>

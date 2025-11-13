@@ -1,0 +1,92 @@
+// prisma/schema.prisma
+
+// Datasource untuk menghubungkan Prisma ke database
+datasource db {
+  provider = "postgresql" // Ganti dengan database yang kamu pakai (misalnya MySQL, SQLite, dll)
+  url      = env("DATABASE_URL")
+}
+
+// Generator untuk Prisma Client
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  email     String     @unique
+  password  String // hashed password
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  reviews   Review[] // Relasi dengan review yang dibuat oleh user
+  Bookmark  Bookmark[]
+}
+
+model Anime {
+  id             Int        @id @default(autoincrement())
+  title          String
+  title_english  String?
+  title_japanese String?
+  synopsis       String?
+  imageUrl       String?
+  score          Float?
+  episodes       Int?
+  status         String?
+  airing         Boolean?
+  genres         String?
+  url            String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  reviews        Review[] // Relasi dengan review yang ditulis oleh user untuk anime
+  Bookmark       Bookmark[]
+}
+
+model Manga {
+  id             Int        @id @default(autoincrement())
+  title          String
+  title_english  String?
+  title_japanese String?
+  synopsis       String?
+  imageUrl       String?
+  score          Float?
+  chapters       Int?
+  status         String?
+  genres         String?
+  url            String
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  reviews        Review[] // Relasi dengan review yang ditulis oleh user untuk manga
+  Bookmark       Bookmark[]
+}
+
+// Model untuk review
+model Review {
+  id        Int      @id @default(autoincrement()) // ID review
+  content   String // Konten komentar review
+  rating    Int // Rating dari 1-5
+  createdAt DateTime @default(now()) // Tanggal review dibuat
+  userId    Int // Relasi dengan User yang menulis review
+  user      User     @relation(fields: [userId], references: [id])
+  animeId   Int? // Relasi ke anime (opsional)
+  mangaId   Int? // Relasi ke manga (opsional)
+  anime     Anime?   @relation(fields: [animeId], references: [id])
+  manga     Manga?   @relation(fields: [mangaId], references: [id])
+}
+
+enum MediaType {
+  anime
+  manga
+}
+
+model Bookmark {
+  id        Int    @id @default(autoincrement())
+  userId    Int
+  mediaType String
+  animeId   Int?
+  mangaId   Int?
+  user      User   @relation(fields: [userId], references: [id])
+  Anime     Anime? @relation(fields: [animeId], references: [id])
+  Manga     Manga? @relation(fields: [mangaId], references: [id])
+
+  @@unique([userId, mediaType, animeId, mangaId])
+}

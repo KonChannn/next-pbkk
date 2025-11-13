@@ -80,18 +80,18 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
-              <a
-                href="/auth/register"
-                className="text-blue-500 hover:text-blue-700 font-medium"
-              >
-                Register here
-              </a>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
+  <p className="text-sm text-gray-600">
+    Don&apos;t have an account?{' '}
+    <a
+      href="/auth/register"
+      className="text-blue-500 hover:text-blue-700 font-medium"
+    >
+      Register here
+    </a>
+  </p>
+</div>
+</form>
+</div>
+</div>
+);
 }

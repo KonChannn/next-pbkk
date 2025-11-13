@@ -9,12 +9,12 @@ interface StatsCardProps {
 
 export function StatsCard({ icon: Icon, count, title }: StatsCardProps) {
   return (
-    <Card color="transparent" shadow={false} className="items-center">
+    <Card color="transparent" shadow={false} className="items-center" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
       <Icon className="h-7 w-7 text-gray-900" />
-      <Typography variant="h1" color="blue-gray" className="mb-2 mt-4 text-5xl">
+      <Typography variant="h1" color="blue-gray" className="mb-2 mt-4 text-5xl" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
         {count}
       </Typography>
-      <Typography variant="h6" className="mb-2 font-normal text-blue-gray-500">
+      <Typography variant="h6" className="mb-2 font-normal text-blue-gray-500" placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
         {title}
       </Typography>
     </Card>
